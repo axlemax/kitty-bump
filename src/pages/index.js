@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import { Button } from "gatsby-theme-material-ui";
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -22,6 +23,7 @@ const IndexPage = () => (
     <p>
       <Link to="/page-2/">Go to page 2</Link> <br />
       <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+      <Button>Hiya</Button>
     </p>
   </Layout>
 )

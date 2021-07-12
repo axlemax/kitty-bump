@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@material-ui/core": "^4.12.1",
     "gatsby": "^3.6.2",
     "gatsby-plugin-gatsby-cloud": "^2.6.1",
     "gatsby-plugin-image": "^1.6.0",
@@ -24,6 +25,8 @@
     "@typescript-eslint/parser": "^4.28.0",
     "eslint": "^7.29.0",
     "eslint-plugin-react": "^7.24.0",
+    "gatsby-plugin-material-ui": "^3.0.1",
+    "gatsby-theme-material-ui": "^2.0.1",
     "prettier": "2.2.1",
     "typescript": "^4.3.4"
   },
