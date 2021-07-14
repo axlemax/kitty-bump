@@ -6,12 +6,11 @@
  */
 
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import { Container } from "@material-ui/core"
 import { createTheme, ThemeProvider } from "@material-ui/core/styles"
 
 import "./page.css"
-import { AppProps } from "../components/types"
+import { AppProps } from "../types/types"
 import ResponsiveDrawer from "../components/ResponsiveDrawer"
 
 const theme = createTheme({
@@ -26,19 +25,15 @@ const theme = createTheme({
 })
 
 const Page = ({ children }: AppProps): JSX.Element => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  const [mobileOpen, setMobileOpen] = React.useState(false)
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen)
+  }
 
   return (
     <ThemeProvider theme={theme}>
-      <ResponsiveDrawer>
+      <ResponsiveDrawer onToggle={handleDrawerToggle} open={mobileOpen}>
         <Container>
           <main>
             {children}

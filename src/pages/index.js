@@ -3,13 +3,13 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { Button } from "gatsby-theme-material-ui";
 
-// import Seo from "../components/seo"
+import Seo from "../components/seo"
 import Page from "../layouts/Page";
 
 const IndexPage = () => {
   return (
     <Page>
-      {/* <Seo title="Home" /> */}
+      <Seo title="Home" />
       <h1>Hi people</h1>
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
