@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 interface ResponsiveDrawerTypes extends AppProps {
-  onToggle: () => any
+  onToggle: () => null
   open: boolean
 }
 
@@ -48,7 +48,7 @@ const ResponsiveDrawer = ({
   children,
   onToggle,
   open,
-}: ResponsiveDrawerTypes) => {
+}: ResponsiveDrawerTypes): JSX.Element => {
   const classes = useStyles()
   const theme = useTheme()
 

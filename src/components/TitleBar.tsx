@@ -16,11 +16,14 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
+  title: {
+    margin: "auto",
+  },
 }))
 
-const TitleBar = ({ onMenuToggle }: { onMenuToggle: () => any }) => {
+const TitleBar = ({ onMenuToggle }: { onMenuToggle: () => null }) => {
   const classes = useStyles()
-  const data = useStaticQuery(graphql`
+  const data = useStaticQuery<string>(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
@@ -44,7 +47,7 @@ const TitleBar = ({ onMenuToggle }: { onMenuToggle: () => any }) => {
             <MenuIcon />
           </IconButton>
         </Hidden>
-        <Typography variant="h6" noWrap>
+        <Typography variant="h6" noWrap className={classes.title}>
           {data.site.siteMetadata?.title || `Title`}
         </Typography>
       </Toolbar>

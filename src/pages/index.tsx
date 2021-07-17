@@ -1,15 +1,15 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { Button } from "gatsby-theme-material-ui";
+import { Button } from "gatsby-theme-material-ui"
 
-import Seo from "../components/seo"
-import Page from "../layouts/Page";
+// import Seo from "../components/seo"
+import Page from "../layouts/Page"
 
-const IndexPage = () => {
+const IndexPage = (): JSX.Element => {
   return (
     <Page>
-      <Seo title="Home" />
+      {/* <Seo title="Home" /> */}
       <h1>Hi people</h1>
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
@@ -23,11 +23,15 @@ const IndexPage = () => {
       />
       <p>
         <Link to="/page-2/">Go to page 2</Link> <br />
-        <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-        <Button variant="contained" color="secondary">Hiya</Button>
-        <Button variant="contained" color="secondary" disabled={true}>Byea</Button>
+        <Button variant="contained" color="secondary">
+          Hiya
+        </Button>
+        <Button variant="contained" color="secondary" disabled={true}>
+          Byea
+        </Button>
       </p>
-    </Page>);
+    </Page>
+  )
 }
 
 export default IndexPage

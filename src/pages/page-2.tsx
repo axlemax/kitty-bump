@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import Page from "../layouts/Page"
 // import Seo from "../components/seo"
 
-const SecondPage = () => (
+const SecondPage = (): JSX.Element => (
   <Page>
     {/* <Seo title="Page two" /> */}
     <h1>Hi from the second page</h1>

@@ -3,7 +3,7 @@ import * as React from "react"
 import Page from "../layouts/Page"
 // import Seo from "../components/seo"
 
-const NotFoundPage = () => (
+const NotFoundPage = (): JSX.Element => (
   <Page>
     {/* <Seo title="404: Not found" /> */}
     <h1>404: Not Found</h1>
