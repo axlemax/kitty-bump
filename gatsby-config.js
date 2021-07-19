@@ -1,7 +1,18 @@
 module.exports = {
     siteMetadata: {
-        title: `Katherine Gacia-Rosales`,
-        author: `Katherine Garcia-Rosales`
+        title: `Katherine Garcia-Rosales`,
+        author: `Katherine Garcia-Rosales`,
+        pages: [{
+                icon: `inbox`,
+                name: `Contact`,
+                location: `contact`
+            },
+            {
+                icon: `mail`,
+                name: `Projects`,
+                location: `projects`
+            }
+        ]
     },
     plugins: [
         `gatsby-plugin-react-helmet`,

@@ -1,9 +1,9 @@
 import * as React from "react"
 import CssBaseline from "@material-ui/core/CssBaseline"
-import Divider from "@material-ui/core/Divider"
 import Drawer from "@material-ui/core/Drawer"
 import Hidden from "@material-ui/core/Hidden"
 import InboxIcon from "@material-ui/icons/MoveToInbox"
+import { Link } from "gatsby-theme-material-ui"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import ListItemIcon from "@material-ui/core/ListItemIcon"
@@ -11,6 +11,8 @@ import ListItemText from "@material-ui/core/ListItemText"
 import MailIcon from "@material-ui/icons/Mail"
 import Toolbar from "@material-ui/core/Toolbar"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
+import { useStaticQuery, graphql } from "gatsby"
+import { SiteInfo } from "../types/types"
 
 import { AppProps } from "../types/types"
 import TitleBar from "./TitleBar"
@@ -40,7 +42,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 interface ResponsiveDrawerTypes extends AppProps {
-  onToggle: () => null
+  onToggle: () => void
   open: boolean
 }
 
@@ -51,35 +53,46 @@ const ResponsiveDrawer = ({
 }: ResponsiveDrawerTypes): JSX.Element => {
   const classes = useStyles()
   const theme = useTheme()
+  const data = useStaticQuery<Record<string, SiteInfo>>(graphql`
+    query SiteQuery {
+      site {
+        siteMetadata {
+          pages {
+            icon
+            name
+            location
+          }
+        }
+      }
+    }
+  `)
 
   const drawer = (
     <>
       <Toolbar />
       <div className={classes.drawerContainer}>
         <List>
-          {["Intro", "Projects", "Research", "Experience"].map(
-            (text, index) => (
-              <ListItem button key={text}>
+          {data.site.siteMetadata.pages.map(({ name, icon, location }) => (
+            <Link to={`/${location}`} key={name}>
+              <ListItem>
                 <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {/* <Link to={location}> */}
+                  {(() => {
+                    switch (icon) {
+                      case "mail":
+                        return <MailIcon />
+                      case "inbox":
+                        return <InboxIcon />
+                    }
+                  })()}
+                  {/* </Link> */}
                 </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={name} />
               </ListItem>
-            )
-          )}
-        </List>
-        <Toolbar />
-        <Divider />
-        <List>
-          {["CV", "Contact Me"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
+            </Link>
           ))}
         </List>
+        <Toolbar />
       </div>
     </>
   )
