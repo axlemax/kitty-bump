@@ -76,7 +76,6 @@ const ResponsiveDrawer = ({
             <Link to={`/${location}`} key={name}>
               <ListItem>
                 <ListItemIcon>
-                  {/* <Link to={location}> */}
                   {(() => {
                     switch (icon) {
                       case "mail":
@@ -85,7 +84,6 @@ const ResponsiveDrawer = ({
                         return <InboxIcon />
                     }
                   })()}
-                  {/* </Link> */}
                 </ListItemIcon>
                 <ListItemText primary={name} />
               </ListItem>
@@ -97,9 +95,6 @@ const ResponsiveDrawer = ({
     </>
   )
 
-  const container =
-    window !== undefined ? () => window.document.body : undefined
-
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -108,7 +103,6 @@ const ResponsiveDrawer = ({
       <Hidden mdUp implementation="css">
         <Drawer
           className={classes.drawer}
-          container={container}
           variant="temporary"
           anchor={theme.direction === "rtl" ? "right" : "left"}
           open={open}
